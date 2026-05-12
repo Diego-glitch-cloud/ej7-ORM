@@ -17,4 +17,14 @@ class Concert extends Model
             'date' => 'datetime',
         ];
     }
+
+    public function artist()
+    {
+        return $this->belongsTo(Artist::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

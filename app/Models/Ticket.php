@@ -10,4 +10,14 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'concert_id', 'price', 'seat_number'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function concert()
+    {
+        return $this->belongsTo(Concert::class);
+    }
 }

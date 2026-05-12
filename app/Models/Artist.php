@@ -10,4 +10,14 @@ class Artist extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'formed_year'];
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
+
+    public function concerts()
+    {
+        return $this->hasMany(Concert::class);
+    }
 }
