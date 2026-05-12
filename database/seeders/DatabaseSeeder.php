@@ -3,23 +3,21 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Artist;
+use App\Models\Genre;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Paso 7: Generar 1100 registros por modelo base (Total 5500)
+        User::factory(1100)->hasProfile()->create();
+        Artist::factory(1100)->hasAlbums(1)->create();
+        Genre::factory(1100)->create();
     }
 }
